@@ -25,4 +25,4 @@ connect(process.env.mongo_uri)
 app.use('/user', userRoutes);
 
 // server
-app.listen(PORT, () => `Server is runnsing on port: ${PORT}`);
+app.listen(PORT, () => console.log(`Server is runnsing on port: ${PORT}`));

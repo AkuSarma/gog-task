@@ -13,7 +13,7 @@ export const signupController = async(req, res, next) => {
             return res.status(400).json({message: "Please fill all the fields"});
         }
 
-        let user = await User.findone({email});
+        let user = await User.findOne({email});
 
         if (user){
             return res.status(400).json({message: "Email already exists"});
