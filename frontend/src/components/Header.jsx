@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // Home | About Us | Contact Us | Login
 const Header = () => {
   return (
-    <nav className="flex flex-row justify-center items-center sticky top-0 shadow-md h-10">
+    <nav className="flex flex-row justify-center items-center sticky top-0 shadow-md h-10 bg-white">
       <Link className="mx-1 underline text-blue-600" to="/">Home</Link>
 
       <span> | </span>

@@ -1,8 +1,24 @@
-import React from 'react';
+import {useState} from 'react';
 
 const Signup = ({setReg}) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    mobile: "",
+    password: "",
+  });
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        
     }
   return (
     <form
@@ -17,6 +33,8 @@ const Signup = ({setReg}) => {
       <input
         type="text"
         name="name"
+        value={formData.name}
+        onChange={handleChange}
         required
         className="p-2 border border-slate-300 rounded-md focus:outline-none focus:border-blue-500"
       />
@@ -25,6 +43,8 @@ const Signup = ({setReg}) => {
       <input
         type="email"
         name="email"
+        value={formData.email}
+        onChange={handleChange}
         required
         className="p-2 border border-slate-300 rounded-md focus:outline-none focus:border-blue-500"
       />
@@ -33,6 +53,8 @@ const Signup = ({setReg}) => {
       <input
         type="number"
         name="mobile"
+        value={formData.mobile}
+        onChange={handleChange}
         required
         className="p-2 border border-slate-300 rounded-md focus:outline-none focus:border-blue-500"
       />
@@ -41,6 +63,8 @@ const Signup = ({setReg}) => {
       <input
         type="password"
         name="password"
+        value={formData.password}
+        onChange={handleChange}
         required
         className="p-2 border border-slate-300 rounded-md focus:outline-none focus:border-blue-500"
       />
