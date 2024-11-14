@@ -1,11 +1,11 @@
 // controller to control the routes
-
 // loginController, signupController;
 import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 export const signupController = async(req, res, next) => {
+    // signup controller
     try{
         const {name, email, mobile, password} = req.body;
 

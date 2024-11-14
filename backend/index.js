@@ -2,18 +2,18 @@ import express, {json} from "express";
 import cors from "cors";
 import userRoutes from "./routes/userRoutes.js";
 import { connect } from "mongoose";
+import dotenv from "dotenv";
+dotenv.config()
 
 const app = express();
-const port = 8000;
+const PORT = process.env.PORT || 8000;
 
 // middleware
 app.use(cors());
 app.use(json());
 
 // mongodb connection
-connect(
-  "mongodb+srv://Akusar1702:Akusar1702@cluster0.mvolh.mongodb.net/carRentalWebsite?retryWrites=true&w=majority&appName=Cluster0"
-)
+connect(process.env.mongo_uri)
   .then(() => {
     console.log("connected to mongodb");
   })
@@ -25,4 +25,4 @@ connect(
 app.use('/user', userRoutes);
 
 // server
-app.listen(port, () => {`Server is runnsing on port ${port}`})
+app.listen(PORT, () => `Server is runnsing on port: ${PORT}`);
