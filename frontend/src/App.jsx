@@ -5,6 +5,7 @@ import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import AboutUs from "./pages/AboutUs";
 import Auth from "./pages/auth";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="about" element={<AboutUs />} />
           <Route path="contact" element={<Contact />} />
           <Route path="login" element={<Auth />} />
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

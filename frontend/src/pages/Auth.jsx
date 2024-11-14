@@ -5,7 +5,9 @@ import Signup from '../components/Signup'
 const Auth = () => {
   const [reg, setReg] = useState(true);
   return (
-    <div>{reg ? <Login setReg={setReg} /> : <Signup setReg={setReg} />}</div>
+    <div className="h-screen flex justify-center items-center">
+      {reg ? <Login setReg={setReg} /> : <Signup setReg={setReg} />}
+    </div>
   );
 }
 
