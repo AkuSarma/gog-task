@@ -1,6 +1,9 @@
 import {useState} from 'react'
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Login = ({ setReg }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -16,7 +19,20 @@ const Login = ({ setReg }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    axios
+      .post("http://localhost:8000/user/login", {
+        email: formData.email,
+        password: formData.password,
+      })
+      .then((res) => {
+        console.log(res);
+        console.log(res.data.user);
+        localStorage.setItem('user', res.data.user)
+      });
+
+    navigate("/dashboard");
   };
+
   return (
     <form
       onSubmit={handleSubmit}

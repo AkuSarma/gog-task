@@ -1,6 +1,9 @@
 import {useState} from 'react';
+import axios from "axios";
+import {useNavigate} from "react-router-dom"
 
 const Signup = ({setReg}) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,8 +21,22 @@ const Signup = ({setReg}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+        axios
+          .post("http://localhost:8000/user/signup", {
+            name: formData.name,
+            email: formData.email,
+            mobile: formData.mobile,
+            password: formData.password,
+          })
+          .then((res) => {
+            console.log(res);
+            console.log(res.user);
+          });
+
+          alert("Signup successful")
+          navigate('/dashboard');
     }
+
   return (
     <form
       onSubmit={handleSubmit}
